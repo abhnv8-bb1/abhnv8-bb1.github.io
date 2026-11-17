@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Security research notice</title>
+<style>
+  body { font: 16px/1.5 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; background: #f6f7f9; color: #1c1e21; }
+  main { max-width: 760px; margin: 48px auto; padding: 32px 36px; background: #fff; border: 1px solid #d9dce1; border-radius: 8px; }
+  h1 { font-size: 24px; margin: 0 0 16px; }
+  code, pre { font: 13px/1.5 Menlo, Consolas, monospace; }
+  pre { background: #f0f1f3; padding: 12px 14px; border-radius: 6px; white-space: pre-wrap; word-break: break-all; }
+  .muted { color: #5b616b; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Security research notice</h1>
+  <p>This host name is controlled by a security researcher (Bugcrowd: <strong>abhnv8</strong>) as part of the
+     <strong>Island Bug Bounty Program</strong>.</p>
+  <p>You reached it because a single sign-on connection on <code>login.island.io</code> still points to this host name.
+     This is not a sign-in page. <strong>It has no form, and it does not collect, store or send anything.</strong></p>
+  <p>If you arrived here while signing in to Island, close this tab and contact your IT department or Island support.</p>
+  <p class="muted">Marker: <code>bugcrowd-abhnv8-island-poc-2026-11</code></p>
+  <p class="muted">What your browser requested (shown locally in this page only):</p>
+  <pre id="req">(script not run)</pre>
+</main>
+<script>
+  // Display only. Nothing here is transmitted or stored.
+  (function () {
+    var p = new URLSearchParams(location.search), names = [];
+    p.forEach(function (v, k) { names.push(k + " (" + v.length + " characters)"); });
+    document.getElementById("req").textContent =
+      "host: " + location.host + "\npath: " + location.pathname +
+      "\nquery parameters present: " + (names.length ? names.join(", ") : "none") +
+      "\nviewed (UTC): " + new Date().toISOString();
+  })();
+</script>
+</body>
+</html>
